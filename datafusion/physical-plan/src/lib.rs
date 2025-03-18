@@ -73,6 +73,7 @@ pub mod sorts;
 pub mod spill;
 pub mod stream;
 pub mod streaming;
+pub mod streaming_operators;
 pub mod tree_node;
 pub mod union;
 pub mod unnest;
