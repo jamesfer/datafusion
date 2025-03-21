@@ -6,17 +6,32 @@ use datafusion_common::DataFusionError;
 use datafusion_physical_expr_common::physical_expr::PhysicalExpr;
 use crate::projection::ProjectionExec;
 
-impl TryInto<ProjectionStreamingTask> for ProjectionExec {
-    type Error = ();
-
-    fn try_into(self) -> Result<ProjectionStreamingTask, Self::Error> {
-        todo!()
-    }
-}
+// impl TryInto<ProjectionStreamingTask> for ProjectionExec {
+//     type Error = ();
+//
+//     fn try_into(self) -> Result<ProjectionStreamingTask, Self::Error> {
+//         todo!()
+//     }
+// }
+//
+// impl TryFrom<ProjectionExec> for ProjectionStreamingTask {
+//     type Error = ();
+//
+//     fn try_from(value: ProjectionExec) -> Result<Self, Self::Error> {
+//         value.expr()
+//         todo!()
+//     }
+// }
 
 pub struct ProjectionStreamingTask {
     schema: SchemaRef,
     expr: Vec<Arc<dyn PhysicalExpr>>,
+}
+
+impl ProjectionStreamingTask {
+    pub fn new(schema: SchemaRef, expr: Vec<Arc<dyn PhysicalExpr>>) -> Self {
+        Self { schema, expr }
+    }
 }
 
 impl ProjectionStreamingTask {
